@@ -79,7 +79,7 @@ class FileStorage
     {
         try {
             $s3 = $this->getS3Client();
-            return $s3->doesObjectExist($this->bucket, 'test1.txt') ? true : false;
+            return $s3->doesObjectExist($this->bucket, $fileName) ? true : false;
         } catch (S3Exception $e) {
             throw $e;
         }
