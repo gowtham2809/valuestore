@@ -98,8 +98,8 @@ class FileStorage
                 'Bucket' => $this->bucket,
                 'Key'    => $fileName
             ]);
-            $stream = $result->get('stream');
-            return file_get_contents($stream);
+            $content = $result['Body']->getContents();
+            return $content;
         } catch (S3Exception $e) {
             throw $e;
         }
